@@ -1,0 +1,11 @@
+All Todo's
+<button [routerLink]="['/add-todo']" routerLinkActive="active" >Add a ToDo</button>
+<router-outlet></router-outlet>
+<div class="todo-item-wrapper" *ngFor="let item of data">
+    <input type="checkbox">
+    <span >{{item?.title}}</span>
+    <!-- <img src="/src/assets/images/edit.png">
+    <img src="/src/assets/images/delete.png" (click)='onRemove(data.userId)'> -->
+    <button (click)='onRemove(item.userId)'>X</button>
+    <button (click)='onEdit(item)'>Edit</button>
+</div>
