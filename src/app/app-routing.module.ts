@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateAccountComponent } from './create-account/create-account.component';
-import { TodolistComponent } from './todolist/todolist.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { TodolistComponent } from './components/todolist/todolist.component';
 
 
 const routes: Routes = [
   { path:'', component: CreateAccountComponent},
-  { path:'todolist', component:TodolistComponent}
+  { path:'todolist', component:TodolistComponent},
 
 ];
 

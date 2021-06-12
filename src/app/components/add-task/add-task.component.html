@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <div class="content">
+        <h1>Add a ToDo</h1>
+        <form action="submit" [formGroup]="taskForm">
+            <input formControlName="task" type="text" placeholder="Start typing...">
+            <button [disabled]='taskForm.invalid' (click)='addTask()'>Save ToDo <img src="assets/arrow.png"></button>    
+        </form>
+    </div>
+
+</div>

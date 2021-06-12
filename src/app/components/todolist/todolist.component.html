@@ -1,0 +1,11 @@
+<app-add-task [todos]='todoList'></app-add-task>
+<div class="wrapper">
+    <h1>All ToDo's</h1>
+    <button>Add a ToDo <img src="assets/add.png"></button>
+    <div class="todolist" *ngFor="let item of todoList">
+        <input type="checkbox" [checked]="item.completed">
+        <span>{{item?.title}}</span>
+        <img src="assets/edit.png">
+        <img src="assets/delete.png">
+    </div>
+</div>
