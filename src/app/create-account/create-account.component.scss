@@ -1,24 +1,62 @@
-$primary-dark: #30313a;
-$primary-grey: #686974;
-
 .wrapper {
   position: absolute;
-  width: 740px;
-  height: 704px;
   left: 345px;
   top: 180px;
+
   background: #ffffff;
   border: 1px solid #e1e1e1;
   box-sizing: border-box;
   border-radius: 20px;
 
-  form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .wrapper__content {
+    padding: 50px;
 
-    button {
-      background: linear-gradient(270deg, #1ea39b 0%, #38ef7d 100%);
-      border-radius: 6px;
+    form {
+      .inputs {
+        margin-bottom: 50px;
+        display: grid;
+        grid-template-columns: repeat(2, 300px);
+
+        div {
+          display: grid;
+          grid-template-columns: 1fr;
+          margin-bottom: 40px;
+
+          input {
+            border: 1px solid #d9d9d9;
+            box-sizing: border-box;
+            border-radius: 6px;
+            height: 40px;
+          }
+
+          span {
+            margin-bottom: 1px;
+          }
+
+          &:nth-child(odd) {
+            margin-right: 50px;
+          }
+
+          .validation {
+            color: #e59d40;
+          }
+        }
+      }
+
+      button {
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(270deg, #1ea39b 0%, #38ef7d 100%);
+        border-radius: 6px;
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+
+        &:disabled {
+          background: #d9d9d9;
+        }
+      }
     }
   }
 }

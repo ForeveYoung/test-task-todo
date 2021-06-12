@@ -4,28 +4,26 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoItemComponent } from './todo-item/todo-item.component';
-import { CreateAccountComponent } from './create-account/create-account.component';
-import { GetTodosService } from './get-todos.service';
-import { AddTodoComponent } from './add-todo/add-todo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { TodolistComponent } from './todolist/todolist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoItemComponent,
     CreateAccountComponent,
-    AddTodoComponent
+    TodolistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [GetTodosService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
