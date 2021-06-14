@@ -1,52 +1,53 @@
 <div class="wrapper">
-    <div class="wrapper__content">
-        <h1>Create account</h1>
-        <h3>Let’s get productive toghether!</h3>
-        <userForm action="submit" [formGroup]="userForm">
-            <div class="inputs">
-                <div>
-                    <label>Full Name*</label>
-                    <input type="text" formControlName="name">
-                    <span class="validation" *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">Please enter the full name</span>
-                </div>
-                <div>
-                    <label>Username*</label>
-                    <input type="text" formControlName="username"> 
-                    <span class="validation" *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched">Please enter the username</span>
-                </div>
-                <div>
-                    <label>Email*</label>
-                    <input type="text" formControlName="email">
-                    <span class="validation" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">Please enter a valid email adress</span>
-                </div>
-                <div>
-                    <label>Phone number*</label>
-                    <input type="text" placeholder="000-000-0000" formControlName="phone">
-                    <span class="validation" *ngIf="userForm.get('number')?.invalid && userForm.get('number')?.touched">Please enter a phone number</span>
-                </div>
-                <ng-container formGroupName="address">
-                    <div>
-                        <label>Address line*</label>
-                        <input type="text" formControlName="street">
-                        <span class="validation" *ngIf="userForm.get('adress')?.invalid && userForm.get('adress')?.touched">Please enter an address</span>
-                    </div>
-                    <div>
-                        <label>Suite</label>
-                        <input type="text" formControlName="suite">
-                    </div>
-                    <div>
-                        <label>City*</label>
-                        <input type="text" formControlName="city">
-                        <span class="validation" *ngIf="userForm.get('city')?.invalid && userForm.get('city')?.touched">Please enter a city</span>
-                    </div>
-                    <div>
-                        <label>ZIP Code*</label>
-                        <input type="text" formControlName="zipcode">
-                        <span class="validation" *ngIf="userForm.get('zip')?.invalid && userForm.get('zip')?.touched">Please enter a valid ZIP code</span>
-                    </div>
-                </ng-container>
+    <h1 class='title'>Create account</h1>
+    <h3 class="subtitle">Let’s get productive toghether!</h3>
+    <div class="userForm" [formGroup]="userForm">
+        <div class="inputs">
+            <div class="input-form">
+                <label>Full Name *</label>
+                <input type="text" formControlName="name" [ngClass]="userForm.get('name')?.invalid && userForm.get('name')?.touched ? 'invalid' : 'valid'">
+                <span [style.visibility]="userForm.get('name')?.invalid && userForm.get('name')?.touched ? 'visible' : 'hidden'"> Please enter the full name</span>
             </div>
-            <button [disabled]='userForm.invalid' routerLink="/todolist" routerLinkActive="active" (click)='addUser()'>Create Account</button>
-        </userForm>
+            <div class="input-form">
+                <label>Username *</label>
+                <input type="text" formControlName="username" [ngClass]="userForm.get('username')?.invalid && userForm.get('username')?.touched ? 'invalid' : 'valid'"> 
+                <span [style.visibility]="userForm.get('username')?.invalid && userForm.get('username')?.touched ? 'visible' : 'hidden'">Please enter the username</span>
+            </div>
+            <div class="input-form">
+                <label>Email *</label>
+                <input type="text" formControlName="email" [ngClass]="userForm.get('email')?.invalid && userForm.get('email')?.touched ? 'invalid' : 'valid'">
+                <span [style.visibility]="userForm.get('email')?.invalid && userForm.get('email')?.touched ? 'visible' : 'hidden'">Please enter a valid email adress</span>
+            </div>
+            <div class="input-form">
+                <label>Phone number *</label>
+                <input type="text" placeholder="000-000-0000" formControlName="phone" [ngClass]="userForm.get('phone')?.invalid && userForm.get('phone')?.touched ? 'invalid' : 'valid'">
+                <span [style.visibility]="userForm.get('phone')?.invalid && userForm.get('phone')?.touched ? 'visible' : 'hidden'">Please enter a phone number</span>
+            </div>
+            <div formGroupName="address" class="address">
+                <div class="input-form">
+                    <label>Address line *</label>
+                    <input type="text" formControlName="street" [ngClass]="userForm.get('address.street')?.invalid && userForm.get('address.street')?.touched ? 'invalid' : 'valid'">
+                    <span [style.visibility]="userForm.get('address.street')?.invalid && userForm.get('address.street')?.touched ? 'visible' : 'hidden'">Please enter an address</span>
+                </div>
+                <div class="input-form">
+                    <label>Suite</label>
+                    <input type="text" formControlName="suite">
+                </div>
+                <div class="input-form">
+                    <label>City *</label>
+                    <input type="text" formControlName="city" [ngClass]="userForm.get('address.city')?.invalid && userForm.get('address.city')?.touched ? 'invalid' : 'valid'">
+                    <span [style.visibility]="userForm.get('address.city')?.invalid && userForm.get('address.city')?.touched ? 'visible' : 'hidden'">Please enter a city</span>
+                </div>
+                <div class="input-form">
+                    <label>ZIP Code *</label>
+                    <input type="text" formControlName="zipcode" [ngClass]="userForm.get('address.zipcode')?.invalid && userForm.get('address.zipcode')?.touched ? 'invalid' : 'valid'">
+                    <span [style.visibility]="userForm.get('address.zipcode')?.invalid && userForm.get('address.zipcode')?.touched ? 'visible' : 'hidden'">Please enter a valid ZIP code</span>
+                </div>
+            </div>
+        </div>
+        <button class="create-btn" [disabled]='userForm.invalid' routerLink="/todolist" routerLinkActive="active" (click)='addUser()'>
+            Create Account
+            <img src="assets/images/arrow.png">
+        </button>
     </div>
 </div>

@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <div class="content">
+        <img src="assets/images/cancel.png" class="cancel" (click)='onCancel()'>
+        <h1 class="remove-title">Removing a ToDo</h1>
+        <span>Are you sure you want to remove this ToDo? It would be impossible to restore it afterwards</span>
+        <span class="todo-title">{{choosedItem.title}}</span>
+        <button (click)='deleteItem()'>Yes, Remove ToDo</button>
+    </div>
+</div>

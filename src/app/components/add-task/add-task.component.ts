@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Todo } from 'src/app/models/todo.model';
+import { Subscription } from 'rxjs';
+import { Todo, AddTodo } from 'src/app/models/todo.model';
 import { ActionsService } from 'src/app/services/actions.service';
 
 @Component({
@@ -8,23 +9,26 @@ import { ActionsService } from 'src/app/services/actions.service';
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.scss']
 })
-export class AddTaskComponent {
+export class AddTaskComponent implements OnDestroy {
 
-  @Input()todos:Todo[] = [];
+  @Input()todos: AddTodo[] = [];
   taskForm: FormGroup = this.fb.group({
     task : ['', Validators.required ]
   })
-  userId: number = 201;
-  constructor(private actionsService: ActionsService,
-              private fb: FormBuilder) { }
+  userId: number = 200;
+  subscription: Subscription;
+
+  constructor(protected actionsService: ActionsService,
+              protected fb: FormBuilder) { }
 
   addTask() { 
     const config = {
       userId: this.userId,
       title: this.taskForm.value.task,
-      completed: false
+      completed: false,
     }
-    this.actionsService.addToDo(config).subscribe(
+
+    this.subscription = this.actionsService.addToDo(config).subscribe(
       (todo)=>{
         this.taskForm.reset();
         this.todos.unshift(todo);
@@ -32,6 +36,14 @@ export class AddTaskComponent {
       },
       (e) => console.error(e)
     )
+    this.actionsService.displayAdd = false;
   }
 
+  onCancel() {
+    this.actionsService.displayAdd = false;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

@@ -1,0 +1,9 @@
+@mixin btn-style {
+  background: linear-gradient(270deg, #1ea39b 0%, #38ef7d 100%);
+  border: none;
+  outline: none;
+  color: #ffffff;
+  border-radius: 6px;
+}
+$primary-dark: #30313a;
+$primary-grey: #686974;

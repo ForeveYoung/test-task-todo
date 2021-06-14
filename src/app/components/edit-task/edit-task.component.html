@@ -1,0 +1,10 @@
+<div class="wrapper" *ngIf="actionsService.displayEdit">
+    <div class="content">
+        <img src="assets/images/cancel.png" class="cancel" (click)='onCancel()'>
+        <h1>Edit a ToDo</h1>
+        <form action="submit" [formGroup]="editForm">
+            <textarea formControlName="editTask" placeholder="Start typing..."></textarea>
+            <button [disabled]='editForm.invalid' (click)='editTask(editForm.value.editTask)'>Save ToDo <img src="assets/images/arrow.png"></button>    
+        </form>
+    </div>
+</div>

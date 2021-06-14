@@ -1,10 +1,10 @@
 <div class="wrapper">
     <div class="content">
+        <img src="assets/images/cancel.png" class="cancel" (click)='onCancel()'>
         <h1>Add a ToDo</h1>
         <form action="submit" [formGroup]="taskForm">
-            <input formControlName="task" type="text" placeholder="Start typing...">
-            <button [disabled]='taskForm.invalid' (click)='addTask()'>Save ToDo <img src="assets/arrow.png"></button>    
+            <textarea formControlName="task" placeholder="Start typing..."></textarea>
+            <button [disabled]='taskForm.invalid' (click)='addTask()'>Save ToDo <img src="assets/images/arrow.png"></button>    
         </form>
     </div>
-
 </div>

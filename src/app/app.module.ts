@@ -9,13 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { TodolistComponent } from './components/todolist/todolist.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { EditTaskComponent } from './components/edit-task/edit-task.component';
+import { RemovingComponent } from './components/removing/removing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateAccountComponent,
     TodolistComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    EditTaskComponent,
+    RemovingComponent
   ],
   imports: [
     BrowserModule,

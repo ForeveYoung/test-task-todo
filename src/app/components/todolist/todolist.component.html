@@ -1,11 +1,16 @@
-<app-add-task [todos]='todoList'></app-add-task>
+<app-add-task [todos]='todoList' *ngIf="actionService.displayAdd"></app-add-task>
+<app-edit-task [todos]='todoList' [clickedItem]='clickedItem' *ngIf="actionService.displayEdit" (editTodoItem)='editTodoItem($event)'></app-edit-task>
+<app-removing [todos]='todoList'*ngIf="actionService.displayRemoveAlert" [choosedItem]='choosedItem' (removeTodoItem)='removeTodoItem()'></app-removing>
+
 <div class="wrapper">
-    <h1>All ToDo's</h1>
-    <button>Add a ToDo <img src="assets/add.png"></button>
+    <div class="title-wrapper">
+        <h1 class="title">All ToDo's</h1>
+        <button (click)='onAdd()'>Add a ToDo <img src="assets/images/add.png"></button>    
+    </div>
     <div class="todolist" *ngFor="let item of todoList">
         <input type="checkbox" [checked]="item.completed">
         <span>{{item?.title}}</span>
-        <img src="assets/edit.png">
-        <img src="assets/delete.png">
+        <img src="assets/images/delete.png" (click)='onDelete(item)'>
+        <img src="assets/images/edit.png" (click)='onEdit(item)'>
     </div>
 </div>

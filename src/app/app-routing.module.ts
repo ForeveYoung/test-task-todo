@@ -7,7 +7,6 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 const routes: Routes = [
   { path:'', component: CreateAccountComponent},
   { path:'todolist', component:TodolistComponent},
-
 ];
 
 @NgModule({
