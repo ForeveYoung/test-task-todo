@@ -6,7 +6,7 @@ import { ActionsService } from '../../services/actions.service';
   selector: 'app-removing',
   templateUrl: './removing.component.html',
   styleUrls: ['./removing.component.scss',
-              '../components/add-task/add-task.component.scss']
+              '../add-task/add-task.component.scss']
 })
 export class RemovingComponent {
 
