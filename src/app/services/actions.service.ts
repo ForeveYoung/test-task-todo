@@ -30,6 +30,7 @@ export class ActionsService {
   }
 
   editTodos(id: number, editedTitle: string) {
-    return this.http.put(`https://jsonplaceholder.typicode.com/todos/${id}`, editedTitle)
+    return this.http.put<Todo>(`https://jsonplaceholder.typicode.com/todos/${id}`, editedTitle)
+    .pipe(catchError(e => throwError(e)));
   }
 }

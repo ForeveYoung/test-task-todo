@@ -32,7 +32,7 @@ export class EditTaskComponent extends AddTaskComponent implements OnInit, OnDes
 
   editTask(item: Todo){
     this.subscription = this.actionsService.editTodos(this.clickedItem.id, this.editForm.value.editTask).subscribe(
-      (res: object) => {
+      (res: Todo) => {
         this.editTodoItem.emit(this.editForm.value.editTask);
         this.actionsService.displayEdit = false;        
       },

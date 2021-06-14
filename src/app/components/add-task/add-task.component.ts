@@ -15,7 +15,7 @@ export class AddTaskComponent implements OnDestroy {
   taskForm: FormGroup = this.fb.group({
     task : ['', Validators.required ]
   })
-  userId: number = 200;
+  userId: number = Math.random();
   subscription: Subscription;
 
   constructor(protected actionsService: ActionsService,
@@ -26,13 +26,12 @@ export class AddTaskComponent implements OnDestroy {
       userId: this.userId,
       title: this.taskForm.value.task,
       completed: false,
-    }
+    }    
 
     this.subscription = this.actionsService.addToDo(config).subscribe(
       (todo)=>{
         this.taskForm.reset();
         this.todos.unshift(todo);
-        this.userId++;
       },
       (e) => console.error(e)
     )
@@ -44,6 +43,6 @@ export class AddTaskComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    //this.subscription.unsubscribe();
   }
 }
